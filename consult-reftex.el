@@ -136,7 +136,7 @@ With prefix ARG rescan the document."
                                 (concat (car style) "{" label "}"))
                               (consult-reftex-active-styles)))
                 :sort nil
-                :default (concat "\\ref{" label "}")
+                :default (concat "\\eqref{" label "}")
                 :prompt "Reference:"
                 :require-match t
                 ;; :category 'reftex-label
@@ -147,6 +147,7 @@ With prefix ARG rescan the document."
                                                                  ("\\Ref" . "Reference")
                                                                  ("\\eqr" . "equation ref")
                                                                  ("\\aut" . "auto ref")
+                                                                 ("\\cref" . "auto ref")
                                                                  ("\\pag" . "page ref")
                                                                  ("\\aut" . "auto page ref"))
                                                                nil nil 'string=)
