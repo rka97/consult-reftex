@@ -70,7 +70,7 @@ With prefix arg PREFIX, rescan the document for references."
                              :prompt "Label (esftNn): "
                              :require-match t
                              :preview-key (if (plist-member (alist-get #'consult-reftex-reference
-                                                                       consult--read-config)
+                                                                       consult--customize-alist)
                                                             :preview-key)
                                               (plist-get config :preview-key)
                                             consult-preview-key)

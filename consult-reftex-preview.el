@@ -17,9 +17,9 @@
   "Create preview function for reftex labels."
   (let ((preview (consult--jump-preview))
         (open    (consult--temporary-files)))
-    (lambda (cand restore)
-      (when cand 
-        (if restore
+    (lambda (action cand)
+      (when cand
+        (if (eq action 'return)
             (progn (funcall preview nil t)
                    (funcall open))
           (catch 'exit 
@@ -32,7 +32,7 @@
                 (throw 'exit nil))
               (setq marker (consult-reftex--label-marker label file open))
               (if marker
-                  (funcall preview marker nil)
+                  (funcall preview action marker)
                 (message "Label %s not found" label)))))))))
 
 (defun consult-reftex-make-window-preview ()
