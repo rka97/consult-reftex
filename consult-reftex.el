@@ -133,8 +133,10 @@ With prefix ARG rescan the document."
                (consult--read
                 (cons label
                       (mapcar (lambda (ref-type) (concat (car ref-type) label (cdr ref-type)))
-                              '(("\\ref{" . "}")
+                              '(("\\cref{" . "}")
                                 ("\\eqref{" . "}")
+                                ("\\ref{" . "}")
+                                ("\\Cref{" . "}")
                                 ("\\Ref{" . "}")
                                 ("\\autoref{" . "}")
                                 ("\\pageref{" . "}")
@@ -149,9 +151,10 @@ With prefix ARG rescan the document."
                                     (propertize (or (alist-get (substring cand 0 4)
                                                                '(("\\ref" . "reference")
                                                                  ("\\Ref" . "Reference")
+                                                                 ("\\cre" . "auto ref")
+                                                                 ("\\Cre" . "auto ref")
                                                                  ("\\eqr" . "equation ref")
                                                                  ("\\aut" . "auto ref")
-                                                                 ("\\cref" . "auto ref")
                                                                  ("\\pag" . "page ref")
                                                                  ("\\aut" . "auto page ref"))
                                                                nil nil 'string=)
